@@ -1,0 +1,40 @@
+{
+  "name": "pickly-clients",
+  "version": "0.0.0-development",
+  "description": "Pickly-backend's clients API",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "mock_api": "prism mock -d ./src/swagger/posts_client.yml",
+    "generate_client": "openapi-generator-cli generate -g typescript-axios -i ./src/swagger/posts_client.yml -o ./src/client",
+    "semantic-release": "semantic-release",
+    "commit": "git-cz"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seifeldeen3388/clients.git"
+  },
+  "keywords": [
+    "pickly"
+  ],
+  "author": "Seif-Eldeen Ibrahem <seifeldeen3388@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seifeldeen3388/clients/issues"
+  },
+  "homepage": "https://github.com/seifeldeen3388/clients#readme",
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "2.2.6",
+    "axios": "0.21.1"
+  },
+  "devDependencies": {
+    "@stoplight/prism-cli": "4.2.0",
+    "commitizen": "4.2.3",
+    "cz-conventional-changelog": "3.3.0",
+    "semantic-release": "^17.4.2",
+    "typescript": "4.2.4"
+  }
+}
