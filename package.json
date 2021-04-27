@@ -20,12 +20,12 @@
   "keywords": [
     "pickly"
   ],
-  "author": "Seif-Eldeen Ibrahem <seifeldeen3388@gmail.com>",
+  "author": "M3ntorship",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/seifeldeen3388/clients/issues"
+    "url": "https://github.com/m3ntorship/posts-client/issues"
   },
-  "homepage": "https://github.com/seifeldeen3388/clients#readme",
+  "homepage": "https://github.com/m3ntorship/posts-client#readme",
   "dependencies": {
     "@openapitools/openapi-generator-cli": "2.2.6",
     "axios": "0.21.1"
