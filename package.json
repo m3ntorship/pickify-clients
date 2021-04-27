@@ -1,7 +1,7 @@
 {
-  "name": "pickly-clients",
+  "name": "posts-clients",
   "version": "0.0.0-development",
-  "description": "Pickly-backend's clients API",
+  "description": "Posts-backend's clients API",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {
@@ -18,7 +18,7 @@
     "url": "https://github.com/m3ntorship/posts-client.git"
   },
   "keywords": [
-    "pickly"
+    "prism"
   ],
   "author": "M3ntorship",
   "license": "MIT",
