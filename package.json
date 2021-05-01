@@ -1,5 +1,5 @@
 {
-  "name": "posts-clients",
+  "name": "@m3ntorship/posts-clients",
   "version": "0.0.0-development",
   "description": "Posts-backend's clients API",
   "main": "dist/main.js",
