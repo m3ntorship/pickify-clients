@@ -1,4 +1,3 @@
-import { BaseAPI } from "./client/base";
 import { PostsApi, VotesApi, MediaApi as MainMediaApi } from "./client/index";
 import * as axios from "axios";
 
