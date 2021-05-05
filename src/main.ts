@@ -2,7 +2,7 @@ import { BaseAPI } from "./client/base";
 import { PostsApi, VotesApi, MediaApi as MainMediaApi } from "./client/index";
 import * as axios from "axios";
 
-class MediaApi extends MainMediaApi {
+class ModifiedMediaApi extends MainMediaApi {
   constructor(options: { basePath: string }) {
     super();
     this.basePath = options.basePath;
@@ -18,4 +18,4 @@ class MediaApi extends MainMediaApi {
   }
 }
 
-export { PostsApi, VotesApi, MediaApi };
+export { PostsApi, VotesApi, ModifiedMediaApi as MediaApi };
