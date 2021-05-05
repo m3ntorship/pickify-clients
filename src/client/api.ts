@@ -176,16 +176,22 @@ export interface OptionsCreationResponse {
     id: string;
     /**
      * 
+     * @type {number}
+     * @memberof OptionsCreationResponse
+     */
+    votes_count?: number;
+    /**
+     * 
      * @type {string}
      * @memberof OptionsCreationResponse
      */
     body?: string;
     /**
      * 
-     * @type {Array<OptionsGroupCreationResponseImageUrl>}
+     * @type {Array<OptionsGroupCreationResponseMedia>}
      * @memberof OptionsCreationResponse
      */
-    image_url?: Array<OptionsGroupCreationResponseImageUrl>;
+    media?: Array<OptionsGroupCreationResponseMedia>;
 }
 /**
  * 
@@ -239,10 +245,10 @@ export interface OptionsGroupCreationResponse {
     name?: string;
     /**
      * 
-     * @type {Array<OptionsGroupCreationResponseImageUrl>}
+     * @type {Array<OptionsGroupCreationResponseMedia>}
      * @memberof OptionsGroupCreationResponse
      */
-    image_url?: Array<OptionsGroupCreationResponseImageUrl>;
+    media?: Array<OptionsGroupCreationResponseMedia>;
     /**
      * 
      * @type {Array<OptionsCreationResponse>}
@@ -253,13 +259,13 @@ export interface OptionsGroupCreationResponse {
 /**
  * 
  * @export
- * @interface OptionsGroupCreationResponseImageUrl
+ * @interface OptionsGroupCreationResponseMedia
  */
-export interface OptionsGroupCreationResponseImageUrl {
+export interface OptionsGroupCreationResponseMedia {
     /**
      * 
      * @type {string}
-     * @memberof OptionsGroupCreationResponseImageUrl
+     * @memberof OptionsGroupCreationResponseMedia
      */
     url: string;
 }
@@ -356,10 +362,10 @@ export interface SinglePostResponse {
     type: SinglePostResponseTypeEnum;
     /**
      * 
-     * @type {Array<OptionsGroupCreationResponseImageUrl>}
+     * @type {Array<OptionsGroupCreationResponseMedia>}
      * @memberof SinglePostResponse
      */
-    image_url?: Array<OptionsGroupCreationResponseImageUrl>;
+    media?: Array<OptionsGroupCreationResponseMedia>;
     /**
      * 
      * @type {SinglePostResponseOptionsGroups}
