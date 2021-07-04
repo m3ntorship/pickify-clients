@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Pickly Post Service
+ * Pickify Post Service
  * Post Service API Specs
  *
  * The version of the OpenAPI document: 1.0.0

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Pickly Post Service
+ * Pickify Post Service
  * Post Service API Specs
  *
  * The version of the OpenAPI document: 1.0.0
@@ -84,6 +84,12 @@ export interface InlineResponse2002 {
      * @memberof InlineResponse2002
      */
     votes_count?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof InlineResponse2002
+     */
+    voted?: boolean;
     /**
      * 
      * @type {string}
@@ -180,6 +186,12 @@ export interface OptionsCreationResponse {
      * @memberof OptionsCreationResponse
      */
     votes_count?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OptionsCreationResponse
+     */
+    voted?: boolean;
     /**
      * 
      * @type {string}
@@ -293,6 +305,12 @@ export interface PostCreationRequest {
      * @memberof PostCreationRequest
      */
     type: PostCreationRequestTypeEnum;
+    /**
+     * 
+     * @type {number}
+     * @memberof PostCreationRequest
+     */
+    media_count: number;
 }
 
 /**
