@@ -1,5 +1,5 @@
 {
-  "name": "@m3ntorship/posts-client",
+  "name": "@m3ntorship/pickify-clients",
   "version": "0.0.0-development",
   "description": "Posts-backend's clients API",
   "main": "dist/main.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/m3ntorship/posts-client.git"
+    "url": "https://github.com/m3ntorship/pickify-clients.git"
   },
   "keywords": [
     "prism"
@@ -23,9 +23,9 @@
   "author": "M3ntorship",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/m3ntorship/posts-client/issues"
+    "url": "https://github.com/m3ntorship/pickify-clients/issues"
   },
-  "homepage": "https://github.com/m3ntorship/posts-client#readme",
+  "homepage": "https://github.com/m3ntorship/pickify-clients#readme",
   "dependencies": {
     "@openapitools/openapi-generator-cli": "2.2.6",
     "axios": "0.21.1"
