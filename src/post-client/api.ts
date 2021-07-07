@@ -51,13 +51,13 @@ export interface InlineResponse200 {
      * @type {number}
      * @memberof InlineResponse200
      */
-    postsCount?: number;
+    postsCount: number;
     /**
      * 
      * @type {Array<SinglePostResponse>}
      * @memberof InlineResponse200
      */
-    posts?: Array<SinglePostResponse>;
+    posts: Array<SinglePostResponse>;
 }
 /**
  * 
@@ -67,35 +67,22 @@ export interface InlineResponse200 {
 export interface InlineResponse2001 {
     /**
      * 
-     * @type {string}
-     * @memberof InlineResponse2001
-     */
-    status?: string;
-}
-/**
- * 
- * @export
- * @interface InlineResponse2002
- */
-export interface InlineResponse2002 {
-    /**
-     * 
      * @type {number}
-     * @memberof InlineResponse2002
+     * @memberof InlineResponse2001
      */
     votes_count?: number;
     /**
      * 
-     * @type {boolean}
-     * @memberof InlineResponse2002
-     */
-    voted?: boolean;
-    /**
-     * 
      * @type {string}
-     * @memberof InlineResponse2002
+     * @memberof InlineResponse2001
      */
     optionId?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof InlineResponse2001
+     */
+    voted?: boolean;
 }
 /**
  * 
@@ -134,13 +121,13 @@ export interface InlineResponse2011Groups {
      * @type {string}
      * @memberof InlineResponse2011Groups
      */
-    id?: string;
+    id: string;
     /**
      * 
      * @type {Array<InlineResponse2011Options>}
      * @memberof InlineResponse2011Groups
      */
-    options?: Array<InlineResponse2011Options>;
+    options: Array<InlineResponse2011Options>;
 }
 /**
  * 
@@ -188,12 +175,6 @@ export interface OptionsCreationResponse {
     votes_count?: number;
     /**
      * 
-     * @type {boolean}
-     * @memberof OptionsCreationResponse
-     */
-    voted?: boolean;
-    /**
-     * 
      * @type {string}
      * @memberof OptionsCreationResponse
      */
@@ -204,6 +185,12 @@ export interface OptionsCreationResponse {
      * @memberof OptionsCreationResponse
      */
     media?: Array<OptionsGroupCreationResponseMedia>;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OptionsCreationResponse
+     */
+    voted?: boolean;
 }
 /**
  * 
@@ -229,7 +216,7 @@ export interface OptionsGroupCreationRequest {
      * @type {string}
      * @memberof OptionsGroupCreationRequest
      */
-    name: string;
+    name?: string;
     /**
      * 
      * @type {Array<OptionsCreationRequest>}
@@ -304,7 +291,7 @@ export interface PostCreationRequest {
      * @type {string}
      * @memberof PostCreationRequest
      */
-    type: PostCreationRequestTypeEnum;
+    type: string;
     /**
      * 
      * @type {number}
@@ -312,17 +299,6 @@ export interface PostCreationRequest {
      */
     media_count: number;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum PostCreationRequestTypeEnum {
-    TextPoll = 'text poll',
-    ImagePoll = 'image poll',
-    MiniSurvey = 'mini survey'
-}
-
 /**
  * 
  * @export
@@ -377,7 +353,7 @@ export interface SinglePostResponse {
      * @type {string}
      * @memberof SinglePostResponse
      */
-    type: SinglePostResponseTypeEnum;
+    type: string;
     /**
      * 
      * @type {Array<OptionsGroupCreationResponseMedia>}
@@ -391,17 +367,6 @@ export interface SinglePostResponse {
      */
     options_groups: SinglePostResponseOptionsGroups;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum SinglePostResponseTypeEnum {
-    TextPoll = 'text poll',
-    ImagePoll = 'image poll',
-    MiniSurvey = 'mini_survey'
-}
-
 /**
  * 
  * @export
@@ -440,132 +405,6 @@ export interface SinglePostResponseUser {
      */
     profile_pic?: string;
 }
-
-/**
- * MediaApi - axios parameter creator
- * @export
- */
-export const MediaApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @summary Add the media data related to a post
-         * @param {any} [file] 
-         * @param {string} [entityType] 
-         * @param {string} [entityId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadOneMedia: async (file?: any, entityType?: string, entityId?: string, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/media`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-            if (entityType !== undefined) { 
-                localVarFormParams.append('entity_type', entityType as any);
-            }
-    
-            if (entityId !== undefined) { 
-                localVarFormParams.append('entity_id', new Blob([JSON.stringify(entityId)], { type: "application/json", }));
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * MediaApi - functional programming interface
- * @export
- */
-export const MediaApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = MediaApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * 
-         * @summary Add the media data related to a post
-         * @param {any} [file] 
-         * @param {string} [entityType] 
-         * @param {string} [entityId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async uploadOneMedia(file?: any, entityType?: string, entityId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadOneMedia(file, entityType, entityId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * MediaApi - factory interface
- * @export
- */
-export const MediaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = MediaApiFp(configuration)
-    return {
-        /**
-         * 
-         * @summary Add the media data related to a post
-         * @param {any} [file] 
-         * @param {string} [entityType] 
-         * @param {string} [entityId] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadOneMedia(file?: any, entityType?: string, entityId?: string, options?: any): AxiosPromise<InlineResponse2001> {
-            return localVarFp.uploadOneMedia(file, entityType, entityId, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * MediaApi - object-oriented interface
- * @export
- * @class MediaApi
- * @extends {BaseAPI}
- */
-export class MediaApi extends BaseAPI {
-    /**
-     * 
-     * @summary Add the media data related to a post
-     * @param {any} [file] 
-     * @param {string} [entityType] 
-     * @param {string} [entityId] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MediaApi
-     */
-    public uploadOneMedia(file?: any, entityType?: string, entityId?: string, options?: any) {
-        return MediaApiFp(this.configuration).uploadOneMedia(file, entityType, entityId, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
 
 /**
  * PostsApi - axios parameter creator
@@ -1093,7 +932,7 @@ export const VotesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addVote(optionid: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InlineResponse2002>>> {
+        async addVote(optionid: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InlineResponse2001>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addVote(optionid, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1114,7 +953,7 @@ export const VotesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addVote(optionid: string, options?: any): AxiosPromise<Array<InlineResponse2002>> {
+        addVote(optionid: string, options?: any): AxiosPromise<Array<InlineResponse2001>> {
             return localVarFp.addVote(optionid, options).then((request) => request(axios, basePath));
         },
     };
