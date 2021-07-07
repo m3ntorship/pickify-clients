@@ -6,7 +6,8 @@
   "types": "dist/main.d.ts",
   "scripts": {
     "mock_api": "prism mock -d https://raw.githubusercontent.com/m3ntorship/pickify-v2-posts/development/openAPI/post.openAPI.yml",
-    "generate_client": "openapi-generator-cli generate -g typescript-axios -i https://raw.githubusercontent.com/m3ntorship/pickify-v2-posts/development/openAPI/post.openAPI.yml -o ./src/client",
+    "generate_post_client": "openapi-generator-cli generate -g typescript-axios -i https://raw.githubusercontent.com/m3ntorship/pickify-posts/development/openAPI/post.openAPI.yml -o ./src/post-client",
+    "generate_media_client": "openapi-generator-cli generate -g typescript-axios -i https://raw.githubusercontent.com/m3ntorship/pickify-media/development/openAPI/media.openAPI.yml -o ./src/media-client",
     "semantic-release": "semantic-release",
     "commit": "git-cz"
   },
